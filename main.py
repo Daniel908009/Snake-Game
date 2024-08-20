@@ -121,7 +121,7 @@ def game_over_screen():
         # displaying the game over message
         text = font.render(f"Game Over! Your score is: {score}", True, (255, 255, 255))
         screen.blit(text, (width//2-text.get_width()//2, height//2-text.get_height()//2))
-        settings_button = pygame.image.load("setting.png")
+        settings_button = pygame.image.load(os.path.join(base_path, "setting.png"))
         screen.blit(settings_button, (width-settings_button.get_width()-10, 10))
         pygame.display.update()
         # event loop
