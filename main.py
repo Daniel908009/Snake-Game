@@ -2,6 +2,12 @@
 import pygame
 import random
 import tkinter
+import sys
+import os
+if hasattr(sys, '_MEIPASS'):
+    base_path = sys._MEIPASS
+else:
+    base_path = os.path.abspath(".")
 
 # function to apply the settings will be enhanced later
 def apply_settings(window, food_number, resizability, speed):
@@ -33,7 +39,7 @@ def settings_window():
     window.title("Settings")
     window.geometry("600x300")
     window.resizable(False, False)
-    window.iconbitmap("setting.ico")
+    window.iconbitmap(os.path.join(base_path, "setting.ico"))
     # creating a main label for the settings window
     main_label = tkinter.Label(window, text="Settings", font=("Arial", 20))
     main_label.pack(side="top")
@@ -140,9 +146,9 @@ width, height = 800, 600
 screen = pygame.display.set_mode((width, height))
 # setting up the title and icon
 pygame.display.set_caption("Snake Game")
-icon = pygame.image.load("snake.png")
+icon = pygame.image.load(os.path.join(base_path, "snake.png"))
 pygame.display.set_icon(icon)
-settings_button = pygame.image.load("setting.png")
+settings_button = pygame.image.load(os.path.join(base_path, "setting.png"))
 
     # classes
 # snake class
